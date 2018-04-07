@@ -22,8 +22,8 @@ add_post_type_support( 'page', 'excerpt' );
  *
  */
 add_filter( 'nav_menu_link_attributes', function ( $atts, $item, $args ) {
-    if ( 1492 === $item->ID ) {
-        $atts['onclick'] = 'ga("send", "event", "Make Appointment", "Click", "Navigation");';
+    if ( 1491 === $item->ID ) {
+        $atts["onclick"] = "ga('send', 'event', 'Make Appointment', 'Click', 'Navigation');";
     }
 
     return $atts;
