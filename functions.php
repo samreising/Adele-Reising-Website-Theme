@@ -12,7 +12,22 @@ function my_theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
+/**
+ * Add excerpt fields to pages
+ */
 add_post_type_support( 'page', 'excerpt' );
+
+/**
+ * Add custom attribute and value to a nav menu item
+ *
+ */
+add_filter( 'nav_menu_link_attributes', function ( $atts, $item, $args ) {
+    if ( 1492 === $item->ID ) {
+        $atts['onclick'] = 'ga("send", "event", "Make Appointment", "Click", "Navigation");';
+    }
+
+    return $atts;
+}, 10, 3 );
 
 /**
  * Enqueue Fonts
